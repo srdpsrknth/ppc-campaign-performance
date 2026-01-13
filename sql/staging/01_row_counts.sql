@@ -1,0 +1,1 @@
+SELECT Count(*) AS row_count from raw_ppc_campaign_performance;
