@@ -221,12 +221,4 @@ No assumptions are made about performance improvement; ROAS is assumed to remain
 
 This platform-level view complements the global reallocation scenarios and provides a lower-risk, more operationally realistic optimization path.
 
----
-
-## Next Steps
-
-* Optional platform-specific sensitivity analysis
-* Simple executive-ready visualizations (baseline vs scenarios)
-* Short narrative summary suitable for stakeholder presentation
-
 
