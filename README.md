@@ -114,8 +114,84 @@ ppc-campaign-performance/
 
 ---
 
+## Campaign-Level Performance & Segmentation
+
+Building on the validated staging layer, campaign performance is aggregated across all available snapshots to create a decision-ready view at the campaign level. Metrics are computed from summed numerators and denominators (rather than averaging pre-calculated rates) to ensure mathematical correctness.
+
+### Campaign Performance Aggregation
+
+* Campaigns are aggregated across all appearances
+* Canonical metrics (CTR, CVR, CPC, CPA, ROAS) are recomputed from totals
+* This avoids common pitfalls such as averaging ratios or double-counting
+
+### Efficiency Segmentation
+
+Campaigns are segmented using percentile-based thresholds on ROAS, CPA, and spend to identify clear action categories:
+
+* **Scale (high ROAS, low CPA):** Efficient, underfunded campaigns suitable for immediate budget increases
+* **Promising (high ROAS, low spend):** Strong performers with growth potential
+* **Waste (high spend, low ROAS):** Primary sources of inefficiency and candidates for budget reduction
+* **Low impact:** Low spend and low return campaigns with limited upside
+* **Monitor:** Middle-of-the-pack campaigns requiring observation rather than immediate action
+
+### Key Findings
+
+* ~14–15% of campaigns fall into the **Scale** segment, delivering very high ROAS at below-average spend
+* ~19–20% of campaigns are classified as **Waste**, absorbing the highest spend while delivering poor returns
+* Only a small overlap exists between top-spend and top-performing campaigns, indicating inefficient allocation
+
+This segmentation framework enables clear prioritization of optimization efforts and sets the foundation for budget reallocation analysis.
+
+---
+
+## Budget Reallocation & What‑If Impact
+
+This step evaluates how reallocating existing budget—without increasing total spend—could improve overall efficiency and revenue.
+
+### Methodology
+
+* Identify **reallocatable spend** based on performance, not arbitrary percentages.
+* Remove spend *and observed revenue* from underperforming campaigns.
+* Reinvest freed budget only into proven high‑efficiency segments.
+* Assume **constant ROAS within segments** (no performance lift), making results conservative.
+
+Two scenarios are evaluated:
+
+#### Scenario A — Median ROAS Reallocation (Upper‑Bound Potential)
+
+* Donors: campaigns with ROAS below the median (ROAS ≈ 7.30)
+* Reallocated spend: ~53.6% of total budget
+* Recipients: **Scale** and **Promising** segments
+* Allocation weights are proportional to segment‑level ROAS
+
+**Result:**
+
+* Blended ROAS improves from **10.05 → 24.02**
+* Total revenue increases from **~59.9M → ~143.1M** at constant spend
+
+This represents an aggressive, upper‑bound scenario that highlights the magnitude of inefficiency in the current allocation.
+
+#### Scenario B — Bottom Quintile Reallocation (Conservative, Implementable)
+
+* Donors: worst‑performing 20% of campaigns by ROAS
+* Smaller reallocation pool focused on clear underperformers
+* Same recipient logic and proportional weighting
+
+**Result:**
+
+* Blended ROAS improves to **16.30**
+* Total revenue increases to **~97.1M** at constant spend
+
+This scenario reflects a more realistic first step for most organizations.
+
+### Key Takeaway
+
+Even under conservative assumptions, reallocating spend away from underperforming campaigns toward proven high‑efficiency segments can materially improve revenue and efficiency without increasing total budget. The range between the two scenarios provides a practical decision envelope rather than a single point estimate.
+
+---
+
 ## Next Steps
 
-* Build canonical staging models with standardized metrics
-* Perform campaign and platform optimization analysis
-* Develop visual summaries to support budget-allocation decisions
+* Optional sensitivity analysis by platform or region
+* Simple executive‑ready visualizations (baseline vs scenarios)
+* Short narrative summary suitable for stakeholder presentation
